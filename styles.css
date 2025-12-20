@@ -794,15 +794,48 @@ body {
 /* ===================================
    RESPONSIVE DESIGN
    =================================== */
-@media (min-width: 768px) {
-    .expertise-grid {
-        grid-template-columns: 1fr 1fr;
+
+/* Tablet and below (< 1024px) */
+@media (max-width: 1024px) {
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .apps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* Mobile and below (< 768px) */
 @media (max-width: 768px) {
     .hero {
         padding: var(--spacing-2xl) 0;
+        min-height: auto;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+    
+    .hero-stat-card {
+        padding: var(--spacing-md);
+    }
+    
+    .hero-stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .hero-stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .expertise-grid {
+        grid-template-columns: 1fr;
     }
     
     .app-stats {
@@ -820,11 +853,70 @@ body {
     .process-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* Modal Responsive */
+    .modal-content {
+        width: 95%;
+        padding: var(--spacing-lg);
+    }
+    
+    .modal-title {
+        font-size: 1.75rem;
+    }
+    
+    .modal-desc {
+        font-size: 1rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+    
+    /* Typography adjustments */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .cta-title {
+        font-size: 2rem;
+    }
+    
+    .cta-description {
+        font-size: 1rem;
+    }
 }
 
+/* Small Mobile (< 480px) */
 @media (max-width: 480px) {
     .container {
         padding: 0 var(--spacing-md);
+    }
+    
+    .hero {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .hero-stat-card {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .hero-stat-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .hero-stat-number {
+        font-size: 1.25rem;
     }
     
     .featured-app-card {
@@ -834,7 +926,98 @@ body {
     .expertise-category {
         padding: var(--spacing-lg);
     }
+    
+    .app-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .process-card {
+        padding: var(--spacing-lg);
+    }
+    
+    /* Modal for very small screens */
+    .modal {
+        padding-top: 20px;
+    }
+    
+    .modal-content {
+        width: 98%;
+        padding: var(--spacing-md);
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .close-modal {
+        font-size: 24px;
+    }
+    
+    /* Adjust app card image height */
+    .app-card-image-container {
+        height: 180px;
+    }
+    
+    /* Typography */
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .cta-button {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 1rem;
+    }
 }
+
+/* Landscape orientation for mobile devices */
+@media (max-width: 900px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .modal {
+        padding-top: 20px;
+    }
+}
+
+/* Very small devices (< 375px) */
+@media (max-width: 375px) {
+    :root {
+        --spacing-xl: 2rem;
+        --spacing-2xl: 3rem;
+        --spacing-3xl: 4rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .process-number {
+        font-size: 2.5rem;
+    }
+}
+
 
 /* ===================================
    ACCESSIBILITY

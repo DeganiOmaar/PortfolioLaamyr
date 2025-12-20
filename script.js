@@ -234,6 +234,37 @@ console.log('%cInterested in the code? Check out the repository!', 'font-size: 1
 // ===================================
 
 const projects = {
+    biadjo: {
+        title: "Biadjo App",
+        description: "Biadjo is a ride-hailing application designed specifically for Libyan citizens, similar to Uber. The app allows users to book taxis and cars, choose their destinations, and get real-time updates. It features a comprehensive driver verification system where drivers must upload their car images, driver's license, and personal information to ensure safety and authenticity. Built with Flutter for mobile, Node.js for backend, and Firebase Cloud Messaging for real-time notifications.",
+        images: [
+            "Biadjo App/0.png",
+            "Biadjo App/1.png",
+            "Biadjo App/2.png",
+            "Biadjo App/3.png",
+            "Biadjo App/4.png",
+            "Biadjo App/5.png",
+            "Biadjo App/6.png",
+            "Biadjo App/7.png",
+            "Biadjo App/8.png",
+            "Biadjo App/9.png",
+            "Biadjo App/10.png",
+            "Biadjo App/11.png",
+            "Biadjo App/12.png",
+            "Biadjo App/13.png",
+            "Biadjo App/14.png",
+            "Biadjo App/15.png",
+            "Biadjo App/16.png",
+            "Biadjo App/17.png",
+            "Biadjo App/18.png",
+            "Biadjo App/19.png",
+            "Biadjo App/20.png",
+            "Biadjo App/21.png",
+            "Biadjo App/22.png",
+            "Biadjo App/23.png",
+            "Biadjo App/24.png"
+        ]
+    },
     matchify: {
         title: "Matchify",
         description: "Matchify is a comprehensive talent marketplace app similar to Upwork and LinkedIn. It connects talents with recruiters, leveraging AI to analyze profiles and generate tailored proposals. Key features include mission posting, AI-driven matchmaking, and real-time chat.",
@@ -316,12 +347,15 @@ function openModal(projectId) {
     const project = projects[projectId];
     if (!project) return;
 
-    // Generate Gallery HTML
-    const galleryHtml = project.images.map(img => `
-        <div class="gallery-item" onclick="viewImage('${img}')">
-            <img src="${img}" alt="${project.title} Screenshot" class="gallery-img">
+    // Generate Gallery HTML with URL-encoded image paths
+    const galleryHtml = project.images.map(img => {
+        const encodedImg = encodeURI(img);
+        return `
+        <div class="gallery-item" onclick="viewImage('${encodedImg}')">
+            <img src="${encodedImg}" alt="${project.title} Screenshot" class="gallery-img">
         </div>
-    `).join('');
+    `;
+    }).join('');
 
     modalBody.innerHTML = `
         <div class="modal-header">
